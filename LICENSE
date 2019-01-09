@@ -1,0 +1,65 @@
+The MIT License (MIT)
+
+Copyright (c) 2018 Truffle
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+After doing all the passes, it issued another error: `Error: Mnemonic invalid or undefined`
+
+I double and tripled checked the mneumonic codes from my Metamask wallet. It's correect.
+Then I exited Truffle and called it again. Now, the same old error:
+
+```
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+Error encountered, bailing. Network state unknown. Review successful transactions manually.
+insufficient funds for gas * price + value
+```
+
+I though that perhaps i'm realy out of funds (my wallet has 0.13 ethers in rinkeby) but could
+not get more ether. So I tried ropsten where I had 1 ether. Now it worked:
+
+```
+12:25 $ truffle deploy --network ropsten
+Using network 'ropsten'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0x1295e0f0d2ccd3a06da95a02c373e4e06c10e8d42830839d5af286fb0d21ad2b
+  Migrations: 0xf2f790041bdf60e85e80640c8aa6b7c388bbfa43
+Saving successful migration to network...
+  ... 0xcd278a8522cee7400409db28ac304e3797d10a9c7ec4c50e38a56dd12bd71624
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying StarNotary...
+  ... 0x26cffc94acf1be23aa79a88e5e1d5a205276ee1d5f9dd3252d46d23637dfbcef
+  StarNotary: 0x65f3c6f5dfeeb7a51476a0d1c5575c91c415cdda
+Saving successful migration to network...
+  ... 0x8ddb77acaa9846211e9d99fa87d7545f10848e20c378f3178edfc0b22ad9c64d
+Saving artifacts...
+```
+
+Now my question is: can I submit the project with de ropsten deployment
+(it explicity asks for rinkeby)? I have some kind of issue with rinkeby
+connection in Metamask. Even when I select it and asks for ether in
+https://faucet.metamask.io, the ether is sent do ropsten.
+
+I published the project again in github:

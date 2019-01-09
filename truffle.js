@@ -6,8 +6,7 @@ require("babel-register")
 
 // 8D5366123CB560BB606379F90A0BFD4769EECC0557F1B362DCAE9012B548B1E5
 
-const mnemonic =
-  "zone omit spot game rude toddler swarm museum future letter ranch donkey"
+const mnemonic = "xxx xxx xxx ..."
 
 const infuraKey = "601a05417e72468398dca54d9a730d76"
 
